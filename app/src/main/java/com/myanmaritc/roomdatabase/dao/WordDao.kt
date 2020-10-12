@@ -1,10 +1,7 @@
 package com.myanmaritc.roomdatabase.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.myanmaritc.roomdatabase.entity.Word
 
 @Dao
@@ -15,5 +12,11 @@ interface WordDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(word: Word)
+
+    @Query("SELECT * FROM word_table WHERE word LIKE :word ORDER BY word ASC")
+    fun getSearchWords(word: String): LiveData<List<Word>>
+
+    @Query("DELETE FROM word_table WHERE word = :word")
+    fun delete(word: String)
 
 }

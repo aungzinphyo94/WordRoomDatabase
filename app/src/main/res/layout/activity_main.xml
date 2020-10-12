@@ -20,11 +20,10 @@
         android:text="Save"
         app:layout_constraintTop_toBottomOf="@id/edtWord" />
 
-    <TextView
-        android:id="@+id/txtResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/btnSave"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerWord"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/btnSave"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

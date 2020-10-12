@@ -27,4 +27,8 @@ class WordViewmodel(application: Application) : AndroidViewModel(application){
         repository.insert(word)
     }
 
+    fun getSearchWord(word: String): LiveData<List<Word>> {
+        return repository.searchWord(word)
+    }
+
 }
